@@ -1,0 +1,76 @@
+<nav class="header-main_nav">
+    <ul class="header-menu">
+        <li class="header-menu_item">
+            <a href="" title="" target="" class="transacciones-container" id="menu-inicio">Inicio</a>
+        </li>
+        <!-- /header-nav_item -->
+        <li class="header-menu_item has-submenu">
+           
+            <div class="desktop-submenu">
+                <div class="container ">
+                    <div class="row ">
+                        <span class="close-menu"><i class="icon-bco icon-error"></i></span>
+
+                        <div (ngSubmit)="onSubmit1()" class="col-sm-4 cardcenter">
+                            <h3 class="transacciones-container">CONSULTAS</h3>
+                            <ul class="desktop-submenu_list">
+                                <li class="desktop-submenu_item desktop-submenu_item--pane">
+                                    <a  [routerLink]="['/ingresardatoconsulta', 101]" title="" target="" id="Consulta-Saldo">
+                                        Consulta de Saldo
+                                          </a>
+                                </li>
+
+                                <li class="desktop-submenu_item desktop-submenu_item--pane">
+                                    <a [routerLink]="['/ingresardatoconsulta', 102]" title="" target="" id="Ultimas5">
+                                            Consulta ultimas 5 transacciones
+                                          </a>
+                                </li>
+
+                                
+
+                            </ul>
+                        </div>
+                        <!-- /col -->
+                        <div class="col-sm-4 cardcenter">
+                            <h3 class="transacciones-container">BANCO TRANSACCIONAL</h3>
+                            <ul class="desktop-submenu_list ">
+                                <li class="desktop-submenu_item desktop-submenu_item--pane">
+                                    <a [routerLink]="['/ingresardatoconsulta', 103]"  title="" target="" id="Crear-cuenta">
+                                            Crear cuenta                                                  
+                                          </a>
+                                </li>
+                                <li class="desktop-submenu_item desktop-submenu_item--pane">
+                                    <a  [routerLink]="['/ingresardatoconsulta', 104]"  title="" target="" id="Deposito-sucursal">
+                                            Deposito sucursal                                               
+                                          </a>
+                                </li>
+                                <li class="desktop-submenu_item desktop-submenu_item--pane">
+                                    <a  [routerLink]="['/ingresardatoconsulta', 105]" title="" target="" id="Deposito-cajero">
+                                            Deposito cajero
+                                          </a>
+                                </li>
+                               <li class="desktop-submenu_item desktop-submenu_item--pane">
+                                    <a  [routerLink]="['/ingresardatoconsulta', 106]" title="" target="" id="Transferencia">
+                                            Transferencia
+                                          </a>
+                                </li>
+                                <li class="desktop-submenu_item desktop-submenu_item--pane">
+                                    <a  [routerLink]="['/ingresardatoconsulta', 107]"  title="" target="" id="Compra-web">
+                                            Compra web
+                                          </a>
+                                </li>
+                                <!-- /col -->
+                            </ul>
+                        </div>
+
+                    </div>
+                    <!-- /row -->
+                </div>
+                <!-- /container -->
+            </div>
+            <!-- /desktop -->
+        </li>
+
+    </ul>
+
+</nav>

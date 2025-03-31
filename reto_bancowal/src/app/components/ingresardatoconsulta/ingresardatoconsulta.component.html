@@ -1,0 +1,93 @@
+<p>RESULTADOS</p>
+<div >
+  <li class="header-menu_item">
+    <a href="/transacciones" title="" target="" class="transacciones-container" id="menu-inicio">Transacciones</a>
+  </li>
+</div>
+<div class="ingresardatoconsulta-container">
+    <h2 *ngIf="id === '101'">CONSULTAR SALDO CUENTA</h2>
+    <h3 *ngIf="id === '102'">CONSULTAR ULTIMAS 5 TRANSACCIONES</h3>
+    <h3 *ngIf="id === '103'">CREAR UNA CUENTA</h3>
+    <form (ngSubmit)="onSubmitC1()">
+      <div class="form-group">
+        <label for="nrocuenta">DIGITE NUMERO DE CUENTA</label>
+        <input type="text" id="nrocuenta" name="nrocuenta" [(ngModel)]="nrocuenta" required>
+        <div  *ngIf="id === '103'" class="form-group">
+          
+          <label for="documentoTitular">DOCUMENTO TITULAR</label>
+          <input type="text" id="documentoTitular" name="documentoTitular" [(ngModel)]="documentoTitular" required>
+          <label for="titular">NOMBRE DUEÑO CUENTA</label>
+          <input type="text" id="titular" name="titular" [(ngModel)]="titular" required>
+          <label for="direccion">DIRECCION</label>
+          <input type="text" id="direccion" name="direccion" [(ngModel)]="direccion" required>
+          <label for="telefono">TELEFONO</label>
+          <input type="text" id="telefono" name="telefono" [(ngModel)]="telefono" required>
+          <label for="email">EMAIL</label>
+          <input type="email" id="email" name="email" [(ngModel)]="email" required>
+          <label for="tipocuenta">TIPO DE CUENTA</label>  
+          <select id="tipocuenta" name="tipocuenta" [(ngModel)]="tipocuenta" required>
+            <option value="" disabled selected>Seleccione un tipo de cuenta</option>
+            <option value="BASICA">BASICA</option>
+            <option value="PREMIUM">PREMIUM</option>
+          </select>
+          <label for="saldo">SALDO</label>
+          <input type="number" id="saldo" name="saldo" [(ngModel)]="saldo" required>
+        </div>
+      </div>
+      <div  *ngIf="id !== '103'">
+          <button type="submit">CONSULTAR</button>
+      </div>
+      <div  *ngIf="id === '103'">
+        <button type="submit">CREAR</button>
+    </div>
+      <div *ngIf="Cuentaifo?.Titular  && id === '101'">
+        <p>titular:{{ Cuentaifo.Titular }}</p>
+       
+        <p>saldo:{{ Cuentaifo.Saldo }}</p>
+        <p>tipo de cuenta:{{ Cuentaifo.Tipocuenta }}</p>
+        <p>Número cuenta:{{ Cuentaifo.Numerocuenta }}</p>
+        
+      </div>
+     
+      <div *ngIf="Cuentaifoarr.length  > 0 && id === '102'" >
+        <h1>ULTIMAS 5 TRANSACCIONES</h1>
+        <div *ngIf="Cuentaifoarr.length  > 0; else noData">
+          <table class="ultimas-table">
+            <thead>
+              <tr>
+                <th>ID Transacción</th>
+                <th>NumeroCuenta</th>
+                <th>Tipo</th>
+                <th>Valor</th>
+                <th>Comision</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let Transacciones of Cuentaifoarr">
+                <td>{{ Transacciones.Transaccion }}</td>
+                <td>{{ Transacciones.NumeroCuenta }}</td>
+                <td>{{ Transacciones.TipoTransaccion }}</td>
+                <td>{{ Transacciones.Valor | currency }}</td>
+                <td>{{ Transacciones.Comision | currency }}</td>
+                <td>{{ Transacciones.Fecha | date:'short' }}</td>
+                <td>{{ Transacciones.Hora}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ng-template #noData>
+          <p>No hay transacciones disponibles....</p>
+        </ng-template>
+    </div>
+    <div *ngIf="datacreainfo?.mensajeok  && id === '103'">
+      <p>{{ datacreainfo.mensajeok }}</p>
+      <p>Número cuenta:{{ datacreainfo.Numerocuenta}}</p>
+    </div>  
+      
+     
+      
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+    </form>
+ </div>

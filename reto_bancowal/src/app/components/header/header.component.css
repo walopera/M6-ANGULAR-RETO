@@ -1,0 +1,42 @@
+.header-main_cont {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centra la imagen horizontalmente */
+    padding: 10px;
+    background-color: #f8f9fa;
+}
+
+.header-main_logo {
+    display: flex;
+    align-items: center;
+}
+
+.header-main_logo img {
+    max-width: 100px;
+    height: auto;
+}
+
+.login-button {
+    position: absolute;
+    right: 20px; /* Ajusta la distancia desde el borde derecho */
+    top: 20px; /* Ajusta la distancia desde el borde superior */
+}
+
+.login-button button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.login-button button a {
+    color: white;
+    text-decoration: none;
+}
+
+.login-button button:hover {
+    background-color: #0056b3;
+}
